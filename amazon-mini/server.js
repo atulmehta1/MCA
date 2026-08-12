@@ -9,15 +9,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ===== Connect to MongoDB =====
+
 connectDB();
 
-// ===== SEED PRODUCTS (ONLY IF EMPTY) =====
+
 async function seedProducts() {
   const count = await Product.countDocuments();
 
   if (count === 0) {
-    console.log("⚡ Seeding products...");
+    console.log(" Seeding products...");
 
     await Product.insertMany([
       {
